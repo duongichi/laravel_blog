@@ -120,5 +120,9 @@ return array(
 	*/
 
 	'pretend' => false,
-
+	'driver' => 'smtp', 
+	'host' => 'smtp.gmail.com', // For testing purposes 
+	'from' => array( 'address' => 'duongnh89@gmail.com', 'name' => 'LARAVEL_BLOG'), 
+	'username' => 'duongnh89@gmail.com', 
+	'password' => '',
 );
