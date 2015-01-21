@@ -28,3 +28,9 @@ Route::post('users/forgot_password', 'UsersController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
+
+// Dashboard route 
+Route::get('userpanel/dashboard', function(){ return View::make('userpanel.dashboard'); }); 
+ 
+// Applies auth filter to the routes within admin/ 
+Route::when('userpanel/*', 'auth');
