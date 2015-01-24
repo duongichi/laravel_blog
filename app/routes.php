@@ -17,6 +17,13 @@ Route::get('/', function()
 });
 //
 
+Route::get('/post/{post}/show', ['as' => 'post.show', 'uses' => 'PostController@show']);
+Route::get('/post/list', ['as' => 'post.list', 'uses' => 'PostController@list']);
+Route::get('/post/new', ['as' => 'post.new', 'uses' => 'PostController@new']);
+Route::get('/post/{post}/edit', ['as' => 'post.edit', 'uses' => 'PostController@edit']);
+Route::get('/post/{post}/delete', ['as' => 'post.delete', 'uses' => 'PostController@delete']);
+Route::post('/post/save', ['as' => 'post.save', 'uses' => 'PostController@save']);
+
 // Confide routes
 Route::get('users/create', 'UsersController@create');
 Route::post('users', 'UsersController@store');
