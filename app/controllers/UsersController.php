@@ -7,7 +7,7 @@
  *
  * Implements actions regarding user management
  */
-class UsersController extends Controller
+class UsersController extends BaseController
 {
 
     /**
@@ -196,4 +196,12 @@ class UsersController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function getIndex()
+    {
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        $this->layout->title = 'Blog Page';
+        $this->layout->main = View::make('home')->nest('content', 'index', compact('posts'));
+    }
+
 }
