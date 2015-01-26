@@ -10,6 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::model('post', 'Post');
+
 
 Route::get('/', function()
 {
@@ -17,12 +19,13 @@ Route::get('/', function()
 });
 //
 
-Route::get('/post/{post}/show', ['as' => 'post.show', 'uses' => 'PostController@show']);
-Route::get('/post/list', ['as' => 'post.list', 'uses' => 'PostController@list']);
-Route::get('/post/new', ['as' => 'post.new', 'uses' => 'PostController@new']);
-Route::get('/post/{post}/edit', ['as' => 'post.edit', 'uses' => 'PostController@edit']);
-Route::get('/post/{post}/delete', ['as' => 'post.delete', 'uses' => 'PostController@delete']);
-Route::post('/post/save', ['as' => 'post.save', 'uses' => 'PostController@save']);
+Route::get('/post/{post}/show', ['as' => 'post.show', 'uses' => 'PostController@showBlog']);
+Route::get('/post/list', ['as' => 'post.list', 'uses' => 'PostController@listBlog']);
+Route::get('/post/new', ['as' => 'post.new', 'uses' => 'PostController@newBlog']);
+Route::get('/post/{post}/edit', ['as' => 'post.edit', 'uses' => 'PostController@editBlog']);
+Route::get('/post/{post}/delete', ['as' => 'post.delete', 'uses' => 'PostController@deleteBlog']);
+Route::post('/post/save', ['as' => 'post.save', 'uses' => 'PostController@saveBlog']);
+Route::post('/post/{post}/update', ['as' => 'post.update', 'uses' => 'PostController@updateBlog']);
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');
