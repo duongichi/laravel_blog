@@ -51,7 +51,7 @@ class PostController extends BaseController
             $post = new Post($post);
             $post->read_more = (strlen($post->content) > 50) ? substr($post->content, 0, 50) : $post->content;
             $post->save();
-            return Redirect::to('/')->with('success', 'Post is saved!');
+            return Redirect::to('/post/list')->with('success', 'Post is saved!');
         } else
             return Redirect::back()->withErrors($valid)->withInput();
     }
@@ -73,9 +73,9 @@ class PostController extends BaseController
             $post->read_more = (strlen($post->content) > 50) ? substr($post->content, 0, 50) : $post->content;
             if (count($post->getDirty()) > 0) {
                 $post->save();
-                return Redirect::back()->with('success', 'Post is updated!');
+                return Redirect::to('/post/list')->with('success', 'Post is updated!');
             } else
-                return Redirect::back()->with('success', 'Nothing to update!');
+                return Redirect::to('/post/list')->with('success', 'Nothing to update!');
         } else
             return Redirect::back()->withErrors($valid)->withInput();
     }
